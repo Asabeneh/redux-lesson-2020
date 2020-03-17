@@ -1,0 +1,44 @@
+.App {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  line-height: 1.75;
+  color: white;
+  padding: 25px;
+  min-height: 100vh;
+  font-family: 'Lato';
+  font-weight: 500;
+}
+.title {
+  font-size: 45px;
+}
+
+button {
+  margin: 3px;
+  padding: 20px 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+li {
+  margin: 5px auto;
+  height: 80px;
+  line-height: 80px;
+  list-style: none;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: left;
+  padding: 10px 55px;
+  font-size: 22px;
+}
+.content {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+  background: rgba(38, 27, 49, 0.9);
+  padding: 25px;
+
+}
