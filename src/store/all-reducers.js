@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
-import bookReducer from './book-reducer'
+import booksReducer from './book-reducer'
 import operationReducer from './operation-reducer'
+import countriesReducer from './countries-reducer'
 
 const allReducer = combineReducers({
   operations: operationReducer,
-  books: bookReducer
+  books: booksReducer,
+  countries: countriesReducer
 })
 
 export default allReducer

@@ -1,4 +1,10 @@
 // this reducer, which is just a function which takes to parameter: state and action
+import {
+  ADD_ONE,
+  MINUS_ONE,
+  CHANGE_COLOR,
+  CHANGE_NAME,
+} from './types'
 
 const initialState = {
   count: 0,
@@ -8,14 +14,14 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_ONE':
+    case ADD_ONE:
       return { ...state, count: state.count + 1 }
-    case 'MINUS_ONE':
+    case MINUS_ONE:
       return { ...state, count: state.count - 1 }
-    case 'CHANGE_NAME':
+    case CHANGE_NAME:
       const name = state.name === 'Asabeneh' ? 'David' : 'Asabeneh'
       return { ...state, name: name }
-    case 'CHANGE_COLOR':
+    case CHANGE_COLOR:
       const colors = [
         'blue',
         '#fa383e',

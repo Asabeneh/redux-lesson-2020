@@ -1,4 +1,5 @@
 import { BOOKS } from '../data/books'
+import { SELECT_BOOK } from './types'
 
 const initialState = {
   books: BOOKS,
@@ -7,9 +8,7 @@ const initialState = {
 
 const bookReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'GET_BOOKS':
-      return [...state]
-    case 'SELECT_BOOK':
+    case SELECT_BOOK:
       return { ...state, selectedBook: state.books[action.payload.index] }
     default:
       return state

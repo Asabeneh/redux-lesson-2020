@@ -10,6 +10,7 @@ import allReducer from './store/all-reducers'
 import './index.css'
 import App from './App'
 
+
 const allEnhancers = compose(
   applyMiddleware(thunk),
   window.devToolsExtension && window.devToolsExtension()
