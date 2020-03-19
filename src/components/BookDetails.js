@@ -1,7 +1,7 @@
 import React from 'react'
 
 const BookDetails = ({ book }) => {
-  if (book == null) {
+  if (!book) {
     return <p>Select Book for more info:</p>
   }
   const { title, author, content } = book
