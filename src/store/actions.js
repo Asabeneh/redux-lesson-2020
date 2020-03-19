@@ -6,10 +6,11 @@ import {
   MINUS_ONE,
   CHANGE_COLOR,
   CHANGE_NAME,
+  CHANGE_MODE,
   SELECT_BOOK,
-  FETCH_COUNTRIES
+  FETCH_COUNTRIES,
+  CHANGE_FONTSIZE
 } from './types'
-
 
 export const addOne = () => ({
   type: ADD_ONE
@@ -78,3 +79,12 @@ export const fetchCountries = () => {
     })
   }
 }
+
+
+
+export const changeFontSize = () => ({
+  type: CHANGE_FONTSIZE
+})
+export const changeMode = () => ({
+  type: CHANGE_MODE
+})

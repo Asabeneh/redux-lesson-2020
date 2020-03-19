@@ -5,58 +5,93 @@ import {
   minusOne,
   changeName,
   changeBackgroundColor,
+  changeMode,
+  changeFontSize,
   selectBook,
   fetchCountries
 } from './store/actions'
 import BookDetails from './components/BookDetails'
 
 import './App.css'
+import Country from './components/Country'
 
 class App extends Component {
   componentDidMount() {
     this.props.fetchCountries()
   }
   render() {
-    const { count, name, color } = this.props.operations
+    const {
+      count,
+      name,
+      color,
+      fontSize,
+      mode
+    } = this.props.operations
     const { books, selectedBook } = this.props.books
     const { countries } = this.props
 
+    let styles
+    if (mode === 'day') {
+      styles = {
+        backgroundColor: color,
+        fontSize: fontSize
+      }
+    }
+
     const bookList = books.map((book, i) => (
-      <li onClick={() => this.props.selectBook(i)}> {book.title}</li>
+      <li key={book.title} onClick={() => this.props.selectBook(i)}>
+        {' '}
+        {book.title}
+      </li>
     ))
     const countriesList = countries.map(country => (
-            <li>{country.name}</li>
-          ))
+      <Country key={country.name} country={country} />
+    ))
 
     return (
-      <div className='App' style={{ backgroundColor: color }}>
-        <h1 className='title'>Redux Lesson</h1>
+      <div className={'App ' + mode} style={styles}>
+        <h1 className='title'>{this.props.title.toUpperCase()}</h1>
         <h2>{count}</h2>
         <h2>{name}</h2>
-        <button onClick={this.props.addOne}>Add One</button>
-        <button onClick={this.props.minusOne}>Minus One</button>
-        <button onClick={this.props.changeName}>Change Name</button>
-        <button onClick={this.props.changeBackgroundColor}>
-          Change background
-        </button>
+        <div className='buttons'>
+          <button onClick={this.props.addOne}>Add One</button>
+          <button onClick={this.props.minusOne}>Minus One</button>
+          <button onClick={this.props.changeName}>Change Name</button>
+
+          <button onClick={this.props.changeBackgroundColor}>
+            Change background
+          </button>
+          <button onClick={this.props.changeFontSize}>A</button>
+          <i onClick={this.props.changeMode} className='far fa-lightbulb'></i>
+        </div>
+
         <ul>{bookList}</ul>
 
         <BookDetails book={selectedBook} />
         <h1>Number of countries: {this.props.countries.length}</h1>
-        <ul>
-          { countriesList}
-        </ul>
+        <ul>{countriesList}</ul>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => {
-  console.log(state)
+// const mapStateToProps = state => {
+//   console.log(state)
+//   return {
+//     operations: state.operations,
+//     books: state.books,
+//     countries: state.countries
+//   }
+// }
+
+// In additon to the state, we can add own state parameter in the mapStateToProps function, using own state we can access the props of the app component, let us go to index and give props title
+
+const mapStateToProps = (state, ownState) => {
   return {
     operations: state.operations,
     books: state.books,
-    countries: state.countries
+    countries: state.countries,
+    title: ownState.title + ' ' + 2020
   }
 }
 
@@ -77,5 +112,7 @@ export default connect(mapStateToProps, {
   changeName,
   selectBook,
   changeBackgroundColor,
-  fetchCountries
+  fetchCountries,
+  changeMode,
+  changeFontSize
 })(App)

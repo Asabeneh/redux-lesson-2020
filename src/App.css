@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   width: 80%;
   margin: auto;
@@ -9,6 +14,7 @@
   font-family: 'Lato';
   font-weight: 500;
 }
+
 .title {
   font-size: 45px;
 }
@@ -24,7 +30,7 @@ button {
 }
 
 li {
-  margin: 5px auto;
+  margin: 10px auto;
   height: 80px;
   line-height: 80px;
   list-style: none;
@@ -33,12 +39,54 @@ li {
   text-align: left;
   padding: 10px 55px;
   font-size: 22px;
+  font-weight: 400;
 }
+
 .content {
   text-align: left;
   font-size: 20px;
   font-weight: 400;
   background: rgba(38, 27, 49, 0.9);
   padding: 25px;
+}
 
+.country {
+  margin: 25px auto;
+  border: 1px solid #ccc;
+  text-align: left;
+  padding: 20px 50px;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.country__name {
+  font-weight: 500;
+  letter-spacing: 2.5px;
+}
+
+.flag {
+  min-width: 150px;
+  max-width: 150px;
+  margin: 15px 0;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px 3px rgb(0, 0, 0, 0.3);
+}
+
+
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.fa-lightbulb {
+  font-size: 52px;
+  cursor: pointer;
+  color: yellow;
+}
+
+.night {
+  background-color: #181818;
+  color: white;
 }
