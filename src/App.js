@@ -20,13 +20,7 @@ class App extends Component {
     this.props.fetchCountries()
   }
   render() {
-    const {
-      count,
-      name,
-      color,
-      fontSize,
-      mode
-    } = this.props.operations
+    const { count, name, color, fontSize, mode } = this.props.operations
     const { books, selectedBook } = this.props.books
     const { countries } = this.props
 
@@ -116,3 +110,12 @@ export default connect(mapStateToProps, {
   changeMode,
   changeFontSize
 })(App)
+
+const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+const evens = numbers.filter(num => num % 2 === 0)
+const odds = numbers.filter(num => num % 2 !== 0)
+
+console.log(evens) // [0, 2, 4, 6, 8, 10]
+
+console.log(odds) // [1, 3, 5, 7, 9]
